@@ -15,9 +15,8 @@ Git 官方下载地址为：http://git-scm.com/downloads
 
 首先我们需要去到我们的 GitHub 仓库，复制 URL。
 ![](quick_guide_asset/Xnip2022-06-07_22-55-36.jpg)
-接着我们需要去到 Settings 中找到 Developer settings。
+在 2021.08.13 之后，输入账号密码的方式来向 Github 仓库提交代码等行为不再被支持。我们必须使用 Personal access token 的方式来替代。因此我们需要生成一个 token 以便我们能将 GitHub 中的仓库克隆到本地。我们去到 Settings 中找到 Developer settings。点击 Generate new token。
 ![](quick_guide_asset/Xnip2022-06-07_22-59-08.jpg)
-我们需要生成一个新的 token 以便我们能将 GitHub 中的仓库克隆到本地。
 在 Note 这一栏输入这个 token 的用途。
 ![](quick_guide_asset/Xnip2022-06-07_23-02-48.jpg)
 Expiration 是这个 token 的有效期，我们可以根据具体的需求设置。为了方便起见，我们直接勾选所有的 scope，然后点击 Generate token。
