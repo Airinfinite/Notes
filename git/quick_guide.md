@@ -36,7 +36,9 @@ git clone https://oauth2:token@github.com/username/xxx.git
 
 到这里，我们就完成了 Git 的安装，并且已经会将自己 GitHub 中的仓库克隆到本地。下面，我们将简单介绍一下 Git 的工作流程，以便让我们能在使用 Git 上得心应手。
 
-## Git 工作流程
+## Git 工作流程及基本概念
+
+### 工作流程
 
 Git 的一般工作流程如下：
 1. 将远程仓库克隆到本地
@@ -46,7 +48,7 @@ Git 的一般工作流程如下：
 5. 最后，我们可以将本地仓库推送到远程仓库
 ![](quick_guide_asset/Xnip2022-06-08_07-53-37.jpg)
 
-## 基本概念
+### 基本概念
 
 * Remote 是远程仓库，常用的有 GitHub、Gitee 等。
 * `clone`：将远程仓库克隆到本地仓库。
@@ -57,3 +59,58 @@ Git 的一般工作流程如下：
 * Index 一般存放在 `.git` 目录下的 index 文件（.git/index）中，所以我们把暂存区有时也叫作索引。
 * `commit`：将我们添加到暂存区的代码提交到本地仓库。
 * `push`：将本地仓库推送到远程仓库。
+
+## 创建仓库
+
+在这里，我们将介绍如何创建 Git 仓库。主要有以下两种方式：
+1. 在本地创建 Git 仓库
+2. 将远程仓库克隆到本地
+
+### 在本地创建 Git 仓库 —— git init
+
+Git 使用 `git init` 命令来初始化一个 Git 仓库，Git 的很多命令都需要在 Git 的仓库中运行，所以 `git init` 是使用 Git 的第一个命令。
+在执行完成 `git init` 命令后，会在当前文件夹 生成一个 .git 目录，也就是本地仓库。
+
+#### 使用方法
+
+使用当前目录作为 Git 仓库，我们只需使它初始化。
+```
+git init
+```
+该命令执行完后会在当前目录生成一个 .git 目录。
+或者我们可以指定特定目录作为 Git 仓库。
+```
+git init newrepo
+```
+初始化后，会在 newrepo 目录下会出现一个名为 .git 的目录，所有 Git 需要的数据和资源都存放在这个目录中。
+如果当前目录下有几个文件想要纳入版本控制，需要先用 `git add` 命令告诉 Git 开始对这些文件进行跟踪，然后提交：
+```
+$ git add *.c
+$ git add README
+$ git commit -m '版本说明'
+```
+以上命令将目录下以 .c 结尾及 README 文件提交到仓库中。
+
+### 将远程仓库克隆到本地 —— git clone
+
+我们使用 `git clone` 从远程 Git 仓库中拷贝项目。克隆仓库的命令格式为：
+```
+git clone repo
+```
+如果我们需要克隆到指定的目录，可以使用以下命令格式：
+```
+git clone repo directory
+```
+参数说明：
+1. repo：远程 Git 仓库
+2. directory：本地目录
+
+比如，要克隆 Ruby 语言的 Git 代码仓库 Grit，可以用下面的命令：
+```
+git clone git://github.com/schacon/grit.git
+```
+执行该命令后，会在当前目录下创建一个名为 grit 的目录，其中包含一个 .git 的目录，用于保存下载下来的所有版本记录。
+如果要自己定义要新建的项目目录名称，可以在上面的命令末尾指定新的名字：
+```
+git clone git://github.com/schacon/grit.git mygrit
+```
