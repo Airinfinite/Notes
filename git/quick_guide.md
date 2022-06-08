@@ -80,7 +80,7 @@ git init
 该命令执行完后会在当前目录生成一个 .git 目录。
 或者我们可以指定特定目录作为 Git 仓库。
 ```
-git init newrepo
+git init [newrepo]
 ```
 初始化后，会在 newrepo 目录下会出现一个名为 .git 的目录，所有 Git 需要的数据和资源都存放在这个目录中。
 如果当前目录下有几个文件想要纳入版本控制，需要先用 `git add` 命令告诉 Git 开始对这些文件进行跟踪，然后提交：
@@ -95,11 +95,11 @@ $ git commit -m '版本说明'
 
 我们使用 `git clone` 从远程 Git 仓库中拷贝项目。克隆仓库的命令格式为：
 ```
-git clone repo
+git clone [repo]
 ```
 如果我们需要克隆到指定的目录，可以使用以下命令格式：
 ```
-git clone repo directory
+git clone [repo] [directory]
 ```
 参数说明：
 1. repo：远程 Git 仓库
@@ -113,4 +113,114 @@ git clone git://github.com/schacon/grit.git
 如果要自己定义要新建的项目目录名称，可以在上面的命令末尾指定新的名字：
 ```
 git clone git://github.com/schacon/grit.git mygrit
+```
+
+## 基本操作
+
+Git 的工作就是创建和保存你项目的快照及与之后的快照进行对比。本章将对有关创建与提交你的项目快照的命令作介绍。
+Git 常用的是以下 6 个命令：`git clone`、`git push`、`git add`、`git commit`、`git checkout`、`git pull`，接下来我们将一一介绍。
+![](quick_guide_asset/2022-06-08-10-01-01.png)
+
+### 创建仓库命令
+
+#### git init
+
+`git init` 命令用于在目录中创建新的 Git 仓库。
+在目录中执行 `git init` 就可以创建一个 Git 仓库了。
+例如，我们在当前目录下创建一个名为 note 的项目：
+```git
+mkdir note
+cd note/
+git init
+# Initialized empty Git repository in ~/Desktop/note/.git/
+```
+现在你可以看到在你的项目中生成了 .git 这个子目录，这就是你的 Git 仓库了，所有有关你的此项目的快照数据都存放在这里。
+
+#### git clone
+
+`git clone` 拷贝一个 Git 仓库到本地，让自己能够查看该项目，或者进行修改。拷贝项目命令格式如下：
+```
+git clone [URL]
+```
+URL 是我们要拷贝的 GitHub 上的项目。
+
+默认情况下，Git 会按照你提供的 URL 所指向的项目的名称创建你的本地项目目录。通常就是该 URL 最后一个 / 之后的项目名称。如果你想要一个不一样的名字，你可以在该命令后加上你想要的名称。
+```
+git clone [URL] [reopname]
+```
+reponame 就是你想要自定义的名字。
+
+### 提交与修改
+
+#### git add
+
+`git add` 命令可将该文件添加到暂存区。
+
+添加一个或多个文件到暂存区：
+```
+git add [file1] [file2] ...
+```
+添加指定目录到暂存区，包括子目录：
+```
+git add [dir]
+```
+添加当前目录下的所有文件到暂存区：
+```
+git add .
+```
+
+#### git commit
+
+`git commit` 命令将暂存区内容添加到本地仓库中。
+提交暂存区到本地仓库中:
+```
+git commit -m [message]
+```
+message 可以是一些备注信息。
+提交暂存区的指定文件到仓库区：
+```
+git commit [file1] [file2] ... -m [message]
+```
+
+### 远程操作
+
+#### git push
+
+`git push` 命令将本地的分支版本上传到远程并合并。命令格式如下：
+```
+git push <远程主机名> <本地分支名>:<远程分支名>
+```
+如果本地分支名与远程分支名相同，则可以省略冒号：
+```
+git push <远程主机名> <本地分支名>
+```
+
+##### 实例
+
+以下命令将本地的 master 分支推送到 origin 主机的 master 分支。
+```
+git push origin master
+```
+相等于：
+```
+git push origin master:master
+```
+
+#### git pull
+
+`git pull` 命令用于从远程获取代码并合并本地的版本。
+`git pull` 其实就是 `git fetch` 和 `git merge FETCH_HEAD` 的简写。命令格式如下：
+```
+git pull <远程主机名> <远程分支名>:<本地分支名>
+```
+
+##### 实例
+
+将远程主机 origin 的 master 分支拉取过来，与本地的 brantest 分支合并。
+```
+git pull origin master:brantest
+```
+如果远程分支是与当前分支合并，则冒号后面的部分可以省略。
+```
+git pull origin master
 ```
