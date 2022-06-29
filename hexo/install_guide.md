@@ -48,4 +48,4 @@ nvm install v16.15.1
 npm install -g hexo-cli
 ```
 
-到这里，Hexo 就已经安装完成了。如何利用 Hexo 创建博客， Hexo 的官方文档已经极其详尽了。在这里就不再赘述，更加详细的内容请移步 [Hexo 官方文档](https://hexo.io/zh-cn/docs/)。
+到这里，Hexo 就已经安装完成了。如何利用 Hexo 创建博客， Hexo 的官方文档已经极其详尽了。在这里不再赘述，更加详细的内容请移步 [Hexo 官方文档](https://hexo.io/zh-cn/docs/)。
