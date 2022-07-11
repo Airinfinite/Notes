@@ -4,6 +4,10 @@
 
 ## 安装 Ghelper 插件
 
+> 经过本人测试，Ghelper 开启上网策略后似乎也不能提供一些帮助。因此，在这里建议直接用手机进入 [STC-SPADES](https://mqk4azjxg8skg6gfelpb.stcserver-cloud.com/auth/login) 或者 [谷歌云](https://scto05.xyz/auth/login) 。
+> 经过测试，谷歌云的网站并没有 STC-SPADES 的稳定，但谷歌云不需要开代理就能访问，而 STC-SPADES 则可能需要开代理才能访问。
+> 2022.7.11 改
+
 在达到真正科学上网之前，我们要访问一些在国内直接访问不稳定的网站，这个插件可以提供我们部分科学上网的功能，让我们之后的访问更加容易。
 
 在安装 Ghelper 插件之前，我们必须先安装好 [ Google Chrome 浏览器](https://www.google.com/chrome/) 或者 [Firefox 浏览器](https://www.mozilla.org/en-US/firefox/new/)。
